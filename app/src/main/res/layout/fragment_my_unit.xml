@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvFinancial"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/forum_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivFinancial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:src="@drawable/ic_financial"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewDivider1"
+                android:layout_width="5dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:layout_marginTop="@dimen/forum_small_margin"
+                android:layout_marginBottom="@dimen/forum_small_margin"
+                android:background="@color/colorDivider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivFinancial"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFinancialLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:text="My Financial"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dashboard_text"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/viewDivider1"
+                app:layout_constraintTop_toTopOf="@id/ivFinancial" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDueLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/forum_margin"
+                android:layout_marginBottom="@dimen/forum_margin"
+                android:text="Due :"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvDue"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@id/tvFinancialLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvFinancialLabel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:textColor="@color/colorRed"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvDueLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvDueLabel"
+                tools:text="31232" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNextDueLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next Due :"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvDueLabel"
+                app:layout_constraintEnd_toStartOf="@id/tvNextDue"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/tvDue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNextDue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:textColor="@color/colorRed"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvNextDueLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvNextDueLabel"
+                tools:text="31232612561" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvComplaints"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/forum_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvFinancial">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivComplaints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:src="@drawable/ic_complaint"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewDivider2"
+                android:layout_width="5dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:layout_marginTop="@dimen/forum_small_margin"
+                android:layout_marginBottom="@dimen/forum_small_margin"
+                android:background="@color/colorDivider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivComplaints"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvComplaintsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:text="@string/complaint"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dashboard_text"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/viewDivider2"
+                app:layout_constraintTop_toTopOf="@id/ivComplaints" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOpenLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/forum_margin"
+                android:layout_marginBottom="@dimen/forum_margin"
+                android:text="Open :"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvOpen"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@id/tvComplaintsLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvComplaintsLabel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOpen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvOpenLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvOpenLabel"
+                tools:text="31232" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvClosedLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next Due :"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvOpenLabel"
+                app:layout_constraintEnd_toStartOf="@id/tvClosed"
+                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/tvOpen" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvClosed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvClosedLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvClosedLabel"
+                tools:text="31232612561" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvMembers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/forum_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvComplaints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivMembers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:src="@drawable/ic_members"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewDivider3"
+                android:layout_width="5dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:layout_marginTop="@dimen/forum_small_margin"
+                android:layout_marginBottom="@dimen/forum_small_margin"
+                android:background="@color/colorDivider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivMembers"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMembersLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:text="@string/members"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dashboard_text"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/viewDivider3"
+                app:layout_constraintTop_toTopOf="@id/ivMembers" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTotalMemberLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/forum_margin"
+                android:layout_marginBottom="@dimen/forum_margin"
+                android:text="Members :"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvTotalMember"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@id/tvMembersLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvMembersLabel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTotalMember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvTotalMemberLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvTotalMemberLabel"
+                tools:text="31232" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvLeases"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/forum_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvMembers">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLeases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:src="@drawable/ic_leases"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewDivider4"
+                android:layout_width="5dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:layout_marginTop="@dimen/forum_small_margin"
+                android:layout_marginBottom="@dimen/forum_small_margin"
+                android:background="@color/colorDivider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivLeases"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLeasesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                android:text="@string/leases"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/dashboard_text"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/viewDivider4"
+                app:layout_constraintTop_toTopOf="@id/ivLeases" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLeasesDetailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/forum_margin"
+                android:layout_marginBottom="@dimen/forum_margin"
+                android:text="Leases Details :"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvLeasesDetail"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="@id/tvLeasesLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvLeasesLabel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLeasesDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/forum_margin"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvLeasesDetailLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvLeasesDetailLabel"
+                tools:text="31232" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        app:indicatorColor="@color/colorAccent"
+        app:indicatorName="BallBeatIndicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

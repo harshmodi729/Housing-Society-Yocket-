@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Housing Society</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_forum">Forum</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="complaint">Complaint</string>
+    <string name="book_facility">Book Facility</string>
+    <string name="invite_visitor">Invite Visitor</string>
+    <string name="dues">Dues</string>
+    <string name="update_details">Update Details</string>
+    <string name="profile">Profile</string>
+    <string name="members">Members</string>
+    <string name="leases">Leases</string>
+    <string name="staff">Staff</string>
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="title_my_unit">My Unit</string>
+</resources>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvComplaint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dashboard_margin"
+        android:layout_marginTop="@dimen/dashboard_margin"
+        android:layout_marginEnd="@dimen/dashboard_small_margin"
+        app:layout_constraintEnd_toStartOf="@id/cvBookFacility"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dashboard_padding"
+            android:text="@string/complaint"
+            android:textColor="@color/colorDashboardText"
+            android:textSize="@dimen/dashboard_text" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvBookFacility"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dashboard_small_margin"
+        android:layout_marginTop="@dimen/dashboard_margin"
+        android:layout_marginEnd="@dimen/dashboard_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cvComplaint"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dashboard_padding"
+            android:text="@string/book_facility"
+            android:textColor="@color/colorDashboardText"
+            android:textSize="@dimen/dashboard_text" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvInviteVisitor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dashboard_margin"
+        android:layout_marginTop="@dimen/dashboard_margin"
+        android:layout_marginEnd="@dimen/dashboard_small_margin"
+        app:layout_constraintEnd_toStartOf="@id/cvDues"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvComplaint">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dashboard_padding"
+            android:text="@string/invite_visitor"
+            android:textColor="@color/colorDashboardText"
+            android:textSize="@dimen/dashboard_text" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvDues"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dashboard_small_margin"
+        android:layout_marginTop="@dimen/dashboard_margin"
+        android:layout_marginEnd="@dimen/dashboard_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cvInviteVisitor"
+        app:layout_constraintTop_toBottomOf="@id/cvBookFacility">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dashboard_padding"
+            android:text="@string/dues"
+            android:textColor="@color/colorDashboardText"
+            android:textSize="@dimen/dashboard_text" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewBg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dashboard_margin"
+        android:background="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvInviteVisitor">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUpdateDetailLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dashboard_margin"
+            android:text="@string/update_details"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/header_text"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/viewBg" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginTop="@dimen/dashboard_margin"
+            android:background="@color/colorDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUpdateDetailLabel" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dashboard_margin"
+            android:background="@drawable/bg_update_detail"
+            android:padding="@dimen/dashboard_padding"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintEnd_toStartOf="@id/ivMembers"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProfileLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dashboard_margin"
+            android:layout_marginBottom="@dimen/dashboard_margin"
+            android:text="@string/profile"
+            android:textColor="@color/colorDashboardText"
+            android:textSize="@dimen/dashboard_text"
+            app:layout_constraintBottom_toBottomOf="@id/viewBg"
+            app:layout_constraintEnd_toEndOf="@id/ivProfile"
+            app:layout_constraintStart_toStartOf="@id/ivProfile"
+            app:layout_constraintTop_toBottomOf="@id/ivProfile" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMembers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_update_detail"
+            android:padding="@dimen/dashboard_padding"
+            android:src="@drawable/ic_members"
+            app:layout_constraintEnd_toStartOf="@id/ivLaces"
+            app:layout_constraintStart_toEndOf="@id/ivProfile"
+            app:layout_constraintTop_toTopOf="@id/ivProfile" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dashboard_margin"
+            android:text="@string/members"
+            android:textColor="@color/colorDashboardText"
+            android:textSize="@dimen/dashboard_text"
+            app:layout_constraintEnd_toEndOf="@id/ivMembers"
+            app:layout_constraintStart_toStartOf="@id/ivMembers"
+            app:layout_constraintTop_toBottomOf="@id/ivMembers" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLaces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_update_detail"
+            android:padding="@dimen/dashboard_padding"
+            android:src="@drawable/ic_leases"
+            app:layout_constraintEnd_toStartOf="@id/ivStaff"
+            app:layout_constraintStart_toEndOf="@id/ivMembers"
+            app:layout_constraintTop_toTopOf="@id/ivProfile" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dashboard_margin"
+            android:text="@string/leases"
+            android:textColor="@color/colorDashboardText"
+            android:textSize="@dimen/dashboard_text"
+            app:layout_constraintEnd_toEndOf="@id/ivLaces"
+            app:layout_constraintStart_toStartOf="@id/ivLaces"
+            app:layout_constraintTop_toBottomOf="@id/ivLaces" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivStaff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_update_detail"
+            android:padding="@dimen/dashboard_padding"
+            android:src="@drawable/ic_staff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivLaces"
+            app:layout_constraintTop_toTopOf="@id/ivProfile" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dashboard_margin"
+            android:text="@string/staff"
+            android:textColor="@color/colorDashboardText"
+            android:textSize="@dimen/dashboard_text"
+            app:layout_constraintEnd_toEndOf="@id/ivStaff"
+            app:layout_constraintStart_toStartOf="@id/ivStaff"
+            app:layout_constraintTop_toBottomOf="@id/ivStaff" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dashboard_margin"
+        android:background="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewBg">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUpcomingEventsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dashboard_margin"
+            android:text="@string/upcoming_events"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/header_text"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginTop="@dimen/dashboard_margin"
+            android:background="@color/colorDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUpcomingEventsLabel" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUpcomingEvents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dashboard_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/colorAccent"
+            app:indicatorName="BallBeatIndicator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
