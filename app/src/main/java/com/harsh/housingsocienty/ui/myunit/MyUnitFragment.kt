@@ -6,14 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.harsh.housingsocienty.R
 import com.harsh.housingsocienty.data.local.AppDatabase
+import com.harsh.housingsocienty.extension.getAppDatabase
 import com.harsh.housingsocienty.extension.isInternetAvailable
 import com.harsh.housingsocienty.extension.makeContext
 import com.harsh.housingsocienty.model.MyUnit
 import kotlinx.android.synthetic.main.fragment_my_unit.*
 
 class MyUnitFragment : Fragment(), IMyUnitView {
+    private lateinit var appDatabase: AppDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,32 +28,40 @@ class MyUnitFragment : Fragment(), IMyUnitView {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val appDatabase = AppDatabase.getInstance(context!!)
+        appDatabase = context!!.getAppDatabase()
         val presenter = MyUnitPresenter(this)
 
         progress.show()
+        getMyUnitLocalDb()
         if (context!!.isInternetAvailable())
             presenter.getMyUnitData(appDatabase)
-        else
-            presenter.getMyUnitLocalDb(viewLifecycleOwner, appDatabase)
+    }
+
+    private fun getMyUnitLocalDb() {
+        appDatabase.getMyUnitDao().getMyUnitData()
+            .observe(viewLifecycleOwner,
+                Observer<MyUnit?> { response ->
+                    response?.let { setMyUnitData(response) }
+                })
+    }
+
+    private fun setMyUnitData(item: MyUnit) {
+        if (progress != null) {
+            progress.hide()
+            tvDue.text = "${item.due}"
+            tvNextDue.text =
+                if (item.next_due == "") getString(R.string.over_due) else "${item.due}"
+            tvOpen.text = "${item.open_complaint}"
+            tvClosed.text = "${item.closed_complaint}"
+            tvTotalMember.text = "${item.total_members}"
+            tvLeasesDetail.text = "${item.leases_detail}"
+        }
     }
 
     override fun showToast(message: String) {
         if (progress != null) {
             progress.hide()
             context!!.makeContext(message)
-        }
-    }
-
-    override fun getMyUnitData(item: MyUnit) {
-        if (progress != null) {
-            progress.hide()
-            tvDue.text = "${item.due}"
-            tvNextDue.text = if (item.next_due == "") "Over Due" else "${item.due}"
-            tvOpen.text = "${item.open_complaint}"
-            tvClosed.text = "${item.closed_complaint}"
-            tvTotalMember.text = "${item.total_members}"
-            tvLeasesDetail.text = "${item.leases_detail}"
         }
     }
 }

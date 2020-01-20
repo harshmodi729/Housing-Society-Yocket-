@@ -5,17 +5,17 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.harsh.housingsocienty.model.MyUnit
+import com.harsh.housingsocienty.model.More
 
 @Dao
-interface MyUnitDao {
+interface MoreDao {
 
-    @Query("SELECT * FROM my_unit")
-    fun getMyUnitData(): LiveData<MyUnit>
+    @Query("SELECT * FROM more")
+    fun getMoreData(): LiveData<More>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertMyUnitData(myUnit: MyUnit)
+    fun insertMoreData(moreData: More)
 
-    @Query("DELETE FROM my_unit")
-    fun deleteMyUnit()
+    @Query("DELETE FROM more")
+    fun deleteMore()
 }

@@ -17,7 +17,7 @@
         android:title="@string/title_my_unit" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/ic_more"
+        android:title="@string/title_more" />
 </menu>

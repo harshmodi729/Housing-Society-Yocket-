@@ -14,8 +14,8 @@ interface UpcomingEventsDao {
     fun getAllUpcomingEventsList(): LiveData<List<UpcomingEvents>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUpcomingEventsList(repoItem: UpcomingEvents)
+    fun insertUpcomingEventsList(upcomingEvents: UpcomingEvents)
 
     @Query("DELETE FROM upcoming_events")
-    suspend fun deleteAllUpcomingEvents()
+    fun deleteAllUpcomingEvents()
 }

@@ -1,4 +1,4 @@
-package com.harsh.housingsocienty
+package com.harsh.housingsocienty.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.harsh.housingsocienty.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,8 +21,10 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_dashboard, R.id.navigation_forum, R.id.navigation_my_unit,
-                R.id.navigation_notifications
+                R.id.navigation_dashboard,
+                R.id.navigation_forum,
+                R.id.navigation_my_unit,
+                R.id.navigation_more
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

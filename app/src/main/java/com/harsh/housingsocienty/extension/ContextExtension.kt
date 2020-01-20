@@ -1,10 +1,12 @@
 package com.harsh.housingsocienty.extension
 
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.widget.Toast
+import com.harsh.housingsocienty.data.local.AppDatabase
 
 fun Context.makeContext(message: String, length: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, message, length).show()
@@ -38,4 +40,12 @@ fun Context.isInternetAvailable(): Boolean {
     }
 
     return isConnected
+}
+
+fun Context.getAppDatabase(): AppDatabase {
+    return AppDatabase.getInstance(this)
+}
+
+fun <T> Context.openNewActivity(activity: Class<T>) {
+    startActivity(Intent(this, activity))
 }

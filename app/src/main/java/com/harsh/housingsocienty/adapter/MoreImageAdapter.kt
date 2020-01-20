@@ -9,49 +9,46 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.load.resource.bitmap.CenterInside
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.harsh.housingsocienty.R
-import com.harsh.housingsocienty.model.UpcomingEvents
-import kotlinx.android.synthetic.main.lay_upcoming_list.view.*
+import com.harsh.housingsocienty.model.ImagesItem
+import kotlinx.android.synthetic.main.lay_more_image_list.view.*
 
-class UpcomingEventsAdapter(private val mContext: Context) :
-    RecyclerView.Adapter<UpcomingEventsAdapter.ViewHolder>() {
-    private var alUpcomingEvents = ArrayList<UpcomingEvents>()
+class MoreImageAdapter(
+    private val mContext: Context,
+    val onImageClickListener: OnImageClickListener
+) :
+    RecyclerView.Adapter<MoreImageAdapter.ViewHolder>() {
+    private var alImageList = ArrayList<ImagesItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(mContext).inflate(
-                R.layout.lay_upcoming_list,
+                R.layout.lay_more_image_list,
                 parent,
                 false
             )
         )
     }
 
-    override fun getItemCount() = alUpcomingEvents.size
+    override fun getItemCount() = alImageList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = alUpcomingEvents[position]
+        val item = alImageList[position]
         holder.bindView(item)
     }
 
-    fun addData(upcomingEvents: ArrayList<UpcomingEvents>) {
-        alUpcomingEvents = upcomingEvents
+    fun addData(imageList: ArrayList<ImagesItem>) {
+        alImageList = imageList
         notifyDataSetChanged()
     }
 
     inner class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        fun bindView(item: UpcomingEvents) {
-            view.tvTitle.text = item.title
-            view.tvDate.text = item.date
-            view.tvDesc.text = item.description
+        fun bindView(item: ImagesItem) {
             Glide.with(mContext)
                 .load(item.image_url)
                 .centerCrop()
-                .transform(CenterInside(), RoundedCorners(16))
                 .listener(object : RequestListener<Drawable?> {
                     override fun onLoadFailed(
                         e: GlideException?,
@@ -60,7 +57,7 @@ class UpcomingEventsAdapter(private val mContext: Context) :
                         isFirstResource: Boolean
                     ): Boolean {
                         view.progress.visibility = View.GONE
-                        view.ivEvents.setBackgroundResource(R.drawable.placeholder)
+                        view.ivImage.setBackgroundResource(R.drawable.placeholder)
                         return false
                     }
 
@@ -75,7 +72,15 @@ class UpcomingEventsAdapter(private val mContext: Context) :
                         return false
                     }
                 })
-                .into(view.ivEvents)
+                .into(view.ivImage)
+
+            view.ivImage.setOnClickListener {
+                onImageClickListener.onImageClick(item)
+            }
         }
+    }
+
+    interface OnImageClickListener {
+        fun onImageClick(item: ImagesItem)
     }
 }

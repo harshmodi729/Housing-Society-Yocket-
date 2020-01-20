@@ -9,4 +9,8 @@
     <dimen name="divider_height">0.5dp</dimen>
     <dimen name="forum_margin">8dp</dimen>
     <dimen name="forum_small_margin">4dp</dimen>
+    <dimen name="more_margin">8dp</dimen>
+    <dimen name="more_small_margin">4dp</dimen>
+    <dimen name="more_directory_text">16sp</dimen>
+    <dimen name="more_image_height_width">70dp</dimen>
 </resources>

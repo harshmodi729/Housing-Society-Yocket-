@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/forum_margin"
-                android:text="My Financial"
+                android:text="@string/my_financial"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/dashboard_text"
                 android:textStyle="bold"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/forum_margin"
                 android:layout_marginBottom="@dimen/forum_margin"
-                android:text="Due :"
+                android:text="@string/due"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/tvDue"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -81,7 +81,7 @@
                 android:id="@+id/tvNextDueLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Next Due :"
+                android:text="@string/next_due"
                 app:layout_constraintBaseline_toBaselineOf="@id/tvDueLabel"
                 app:layout_constraintEnd_toStartOf="@id/tvNextDue"
                 app:layout_constraintHorizontal_bias="0.8"
@@ -154,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/forum_margin"
                 android:layout_marginBottom="@dimen/forum_margin"
-                android:text="Open :"
+                android:text="@string/open"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/tvOpen"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -176,7 +176,7 @@
                 android:id="@+id/tvClosedLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Next Due :"
+                android:text="@string/closed"
                 app:layout_constraintBaseline_toBaselineOf="@id/tvOpenLabel"
                 app:layout_constraintEnd_toStartOf="@id/tvClosed"
                 app:layout_constraintHorizontal_bias="0.8"
@@ -248,11 +248,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/forum_margin"
                 android:layout_marginBottom="@dimen/forum_margin"
-                android:text="Members :"
+                android:text="@string/my_unit_members"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/tvTotalMember"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="@id/tvMembersLabel"
                 app:layout_constraintTop_toBottomOf="@id/tvMembersLabel" />
 
@@ -262,7 +260,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/forum_margin"
                 app:layout_constraintBaseline_toBaselineOf="@id/tvTotalMemberLabel"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvTotalMemberLabel"
                 tools:text="31232" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -321,11 +318,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/forum_margin"
                 android:layout_marginBottom="@dimen/forum_margin"
-                android:text="Leases Details :"
+                android:text="@string/leases_details"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/tvLeasesDetail"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="@id/tvLeasesLabel"
                 app:layout_constraintTop_toBottomOf="@id/tvLeasesLabel" />
 
@@ -335,7 +330,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/forum_margin"
                 app:layout_constraintBaseline_toBaselineOf="@id/tvLeasesDetailLabel"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvLeasesDetailLabel"
                 tools:text="31232" />
         </androidx.constraintlayout.widget.ConstraintLayout>

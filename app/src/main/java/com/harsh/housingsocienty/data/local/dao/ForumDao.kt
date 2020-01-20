@@ -17,5 +17,5 @@ interface ForumDao {
     fun insertForumList(forumData: Forum)
 
     @Query("DELETE FROM forum")
-    suspend fun deleteAllForum()
+    fun deleteAllForum()
 }

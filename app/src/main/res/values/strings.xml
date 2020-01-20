@@ -2,7 +2,7 @@
     <string name="app_name">Housing Society</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_forum">Forum</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_more">More</string>
     <string name="complaint">Complaint</string>
     <string name="book_facility">Book Facility</string>
     <string name="invite_visitor">Invite Visitor</string>
@@ -14,4 +14,17 @@
     <string name="staff">Staff</string>
     <string name="upcoming_events">Upcoming Events</string>
     <string name="title_my_unit">My Unit</string>
+    <string name="my_financial">My Financial</string>
+    <string name="due">Due :</string>
+    <string name="next_due">Next Due :</string>
+    <string name="open">Open :</string>
+    <string name="closed">Closed :</string>
+    <string name="my_unit_members">Members :</string>
+    <string name="leases_details">Leases Details :</string>
+    <string name="notice_board">Notice Board</string>
+    <string name="directory">Directory</string>
+    <string name="contacts">Contacts</string>
+    <string name="neighbours">Neighbours</string>
+    <string name="photos">Photos</string>
+    <string name="over_due">Over Due</string>
 </resources>

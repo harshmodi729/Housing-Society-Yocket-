@@ -1,7 +1,5 @@
 package com.harsh.housingsocienty.ui.dashboard
 
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
 import com.google.firebase.database.*
 import com.harsh.housingsocienty.data.local.AppDatabase
 import com.harsh.housingsocienty.model.UpcomingEvents
@@ -34,17 +32,7 @@ class DashboardPresenter(internal var mIDashboardView: IDashboardView) {
                         alUpcomingEvents.add(item)
                     }
                 }
-                mIDashboardView.getUpcomingList(alUpcomingEvents)
             }
         })
-    }
-
-    fun getAllUpcomingEventsLocalDb(viewLifecycleOwner: LifecycleOwner, appDatabase: AppDatabase) {
-        appDatabase.getUpcomingEventDao().getAllUpcomingEventsList()
-            .observe(viewLifecycleOwner,
-                Observer<List<UpcomingEvents>?> { response ->
-                    alUpcomingEvents = response as ArrayList<UpcomingEvents>
-                    mIDashboardView.getUpcomingList(alUpcomingEvents)
-                })
     }
 }

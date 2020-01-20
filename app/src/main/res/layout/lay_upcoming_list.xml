@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,6 +22,17 @@
             app:layout_constraintEnd_toStartOf="@id/ivGuideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/colorAccent"
+            app:indicatorName="BallBeatIndicator"
+            app:layout_constraintBottom_toBottomOf="@id/ivEvents"
+            app:layout_constraintEnd_toEndOf="@id/ivEvents"
+            app:layout_constraintStart_toStartOf="@id/ivEvents"
+            app:layout_constraintTop_toTopOf="@id/ivEvents" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/ivGuideline"
@@ -37,15 +50,18 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/tvDate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivGuideline"
-            app:layout_constraintTop_toTopOf="@id/ivEvents"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:text="@tools:sample/lorem" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tvDesc"
             app:layout_constraintStart_toEndOf="@id/ivGuideline"
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
             tools:text="@tools:sample/lorem" />
@@ -54,10 +70,9 @@
             android:id="@+id/tvDesc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:maxLines="2"
-            app:layout_constraintBottom_toBottomOf="@id/ivEvents"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/tvTitle"
             app:layout_constraintStart_toStartOf="@id/tvTitle"
             app:layout_constraintTop_toBottomOf="@id/tvDate"

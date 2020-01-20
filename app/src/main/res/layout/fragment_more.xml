@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvNoticeBoard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/more_margin"
+        android:layout_marginTop="@dimen/more_margin"
+        android:layout_marginEnd="@dimen/more_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNoticeBoardLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/more_margin"
+                android:text="@string/notice_board"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/header_text"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNoticeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/more_margin"
+                android:background="@drawable/bg_notice_count"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvNoticeBoardLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNotificationDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/more_small_margin"
+                android:layout_marginBottom="@dimen/more_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tvNoticeCount"
+                app:layout_constraintStart_toStartOf="@id/tvNoticeBoardLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvNoticeCount" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvDirectory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/more_margin"
+        android:layout_marginTop="@dimen/more_margin"
+        android:layout_marginEnd="@dimen/more_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvNoticeBoard">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDirectoryLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/more_margin"
+                android:text="@string/directory"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/header_text"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvContactsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/contacts"
+                android:textSize="@dimen/more_directory_text"
+                app:layout_constraintBottom_toTopOf="@id/tvContacts"
+                app:layout_constraintEnd_toStartOf="@id/tvStaffLabel"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="@id/tvDirectoryLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvDirectoryLabel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvContacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/more_margin"
+                android:textSize="@dimen/header_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tvContactsLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvContactsLabel"
+                tools:text="123" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStaffLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/staff"
+                android:textSize="@dimen/more_directory_text"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvContactsLabel"
+                app:layout_constraintEnd_toStartOf="@id/tvNeighboursLabel"
+                app:layout_constraintStart_toEndOf="@id/tvContactsLabel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStaff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/header_text"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvContacts"
+                app:layout_constraintStart_toStartOf="@id/tvStaffLabel"
+                tools:text="123" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNeighboursLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/more_margin"
+                android:text="@string/neighbours"
+                android:textSize="@dimen/more_directory_text"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvContactsLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvStaffLabel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNeighbours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/header_text"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvContacts"
+                app:layout_constraintStart_toStartOf="@id/tvNeighboursLabel"
+                tools:text="123" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/more_margin"
+        android:layout_marginTop="@dimen/more_margin"
+        android:layout_marginEnd="@dimen/more_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvDirectory">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPhotosLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/more_margin"
+                android:text="@string/photos"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/header_text"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPhotos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/more_margin"
+                android:layout_marginEnd="@dimen/more_margin"
+                android:layout_marginBottom="@dimen/more_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tvPhotosLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvPhotosLabel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        app:indicatorColor="@color/colorAccent"
+        app:indicatorName="BallBeatIndicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layFullImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#B3000000"
+        android:elevation="4dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFullImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.9" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_full_image_close"
+            android:padding="8dp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintBottom_toTopOf="@id/ivFullImage"
+            app:layout_constraintEnd_toEndOf="@id/ivFullImage"
+            app:layout_constraintStart_toEndOf="@id/ivFullImage"
+            app:layout_constraintTop_toTopOf="@id/ivFullImage" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/progressFullImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/colorAccent"
+            app:indicatorName="BallBeatIndicator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

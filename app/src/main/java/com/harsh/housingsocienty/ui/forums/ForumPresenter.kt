@@ -1,7 +1,5 @@
 package com.harsh.housingsocienty.ui.forums
 
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
 import com.google.firebase.database.*
 import com.harsh.housingsocienty.data.local.AppDatabase
 import com.harsh.housingsocienty.model.Forum
@@ -32,17 +30,7 @@ class ForumPresenter(internal var mIForumView: IForumView) {
                         alForum.add(item)
                     }
                 }
-                mIForumView.getForumList(alForum)
             }
         })
-    }
-
-    fun getAllForumsLocalDb(viewLifecycleOwner: LifecycleOwner, appDatabase: AppDatabase) {
-        appDatabase.getForumDao().getAllForumList()
-            .observe(viewLifecycleOwner,
-                Observer<List<Forum>> { response ->
-                    alForum = response as ArrayList<Forum>
-                    mIForumView.getForumList(alForum)
-                })
     }
 }

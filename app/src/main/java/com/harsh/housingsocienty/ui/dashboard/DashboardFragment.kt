@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.harsh.housingsocienty.R
 import com.harsh.housingsocienty.adapter.UpcomingEventsAdapter
 import com.harsh.housingsocienty.data.local.AppDatabase
+import com.harsh.housingsocienty.extension.getAppDatabase
 import com.harsh.housingsocienty.extension.isInternetAvailable
 import com.harsh.housingsocienty.extension.makeContext
 import com.harsh.housingsocienty.model.UpcomingEvents
@@ -16,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 class DashboardFragment : Fragment(), IDashboardView {
     private lateinit var adapter: UpcomingEventsAdapter
+    private lateinit var appDatabase: AppDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,30 +30,34 @@ class DashboardFragment : Fragment(), IDashboardView {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         val presenter = DashboardPresenter(this)
-        val appDatabase = AppDatabase.getInstance(context!!)
+        appDatabase = context!!.getAppDatabase()
         adapter = UpcomingEventsAdapter(context!!)
         rvUpcomingEvents.layoutManager = LinearLayoutManager(context!!)
         rvUpcomingEvents.adapter = adapter
 
         progress.show()
+        getAllUpcomingEventsLocalDb()
         if (context!!.isInternetAvailable())
             presenter.getAllUpcomingEvents(appDatabase)
-        else
-            presenter.getAllUpcomingEventsLocalDb(viewLifecycleOwner, appDatabase)
+    }
+
+    private fun getAllUpcomingEventsLocalDb() {
+        appDatabase.getUpcomingEventDao().getAllUpcomingEventsList()
+            .observe(viewLifecycleOwner,
+                Observer<List<UpcomingEvents>?> { response ->
+                    if (progress != null) {
+                        progress.hide()
+                        response?.let { adapter.addData(it as ArrayList<UpcomingEvents>) }
+                    }
+                })
     }
 
     override fun showToast(message: String) {
         if (progress != null) {
             progress.hide()
             context!!.makeContext(message)
-        }
-    }
-
-    override fun getUpcomingList(alUpcomingEvents: ArrayList<UpcomingEvents>) {
-        if (progress != null) {
-            progress.hide()
-            adapter.addData(alUpcomingEvents)
         }
     }
 }
