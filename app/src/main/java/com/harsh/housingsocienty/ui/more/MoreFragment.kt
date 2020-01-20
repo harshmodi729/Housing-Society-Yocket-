@@ -18,7 +18,7 @@ import com.harsh.housingsocienty.adapter.MoreImageAdapter
 import com.harsh.housingsocienty.data.local.AppDatabase
 import com.harsh.housingsocienty.extension.getAppDatabase
 import com.harsh.housingsocienty.extension.isInternetAvailable
-import com.harsh.housingsocienty.extension.makeContext
+import com.harsh.housingsocienty.extension.makeToast
 import com.harsh.housingsocienty.model.ImagesItem
 import com.harsh.housingsocienty.model.More
 import kotlinx.android.synthetic.main.fragment_more.*
@@ -62,6 +62,7 @@ class MoreFragment : Fragment(), IMoreView, MoreImageAdapter.OnImageClickListene
                 if (progress != null) {
                     progress.hide()
                     it?.let { setMoreData(it) }
+                        ?: context!!.makeToast(getString(R.string.no_data_found))
                 }
             })
     }
@@ -84,7 +85,7 @@ class MoreFragment : Fragment(), IMoreView, MoreImageAdapter.OnImageClickListene
     override fun showToast(message: String) {
         if (progress != null) {
             progress.hide()
-            context!!.makeContext(message)
+            context!!.makeToast(message)
         }
     }
 

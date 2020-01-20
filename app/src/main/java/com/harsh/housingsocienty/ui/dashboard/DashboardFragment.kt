@@ -12,7 +12,7 @@ import com.harsh.housingsocienty.adapter.UpcomingEventsAdapter
 import com.harsh.housingsocienty.data.local.AppDatabase
 import com.harsh.housingsocienty.extension.getAppDatabase
 import com.harsh.housingsocienty.extension.isInternetAvailable
-import com.harsh.housingsocienty.extension.makeContext
+import com.harsh.housingsocienty.extension.makeToast
 import com.harsh.housingsocienty.model.UpcomingEvents
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
@@ -49,7 +49,12 @@ class DashboardFragment : Fragment(), IDashboardView {
                 Observer<List<UpcomingEvents>?> { response ->
                     if (progress != null) {
                         progress.hide()
-                        response?.let { adapter.addData(it as ArrayList<UpcomingEvents>) }
+                        response?.let {
+                            if (response.isNotEmpty()) {
+                                tvNoData.visibility = View.GONE
+                                adapter.addData(it as ArrayList<UpcomingEvents>)
+                            } else tvNoData.visibility = View.VISIBLE
+                        } ?: kotlin.run { tvNoData.visibility = View.VISIBLE }
                     }
                 })
     }
@@ -57,7 +62,7 @@ class DashboardFragment : Fragment(), IDashboardView {
     override fun showToast(message: String) {
         if (progress != null) {
             progress.hide()
-            context!!.makeContext(message)
+            context!!.makeToast(message)
         }
     }
 }

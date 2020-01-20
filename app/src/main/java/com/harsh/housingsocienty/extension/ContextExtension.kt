@@ -8,7 +8,7 @@ import android.os.Build
 import android.widget.Toast
 import com.harsh.housingsocienty.data.local.AppDatabase
 
-fun Context.makeContext(message: String, length: Int = Toast.LENGTH_SHORT) {
+fun Context.makeToast(message: String, length: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, message, length).show()
 }
 

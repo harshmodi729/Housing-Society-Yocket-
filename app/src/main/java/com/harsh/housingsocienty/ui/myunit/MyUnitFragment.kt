@@ -11,7 +11,7 @@ import com.harsh.housingsocienty.R
 import com.harsh.housingsocienty.data.local.AppDatabase
 import com.harsh.housingsocienty.extension.getAppDatabase
 import com.harsh.housingsocienty.extension.isInternetAvailable
-import com.harsh.housingsocienty.extension.makeContext
+import com.harsh.housingsocienty.extension.makeToast
 import com.harsh.housingsocienty.model.MyUnit
 import kotlinx.android.synthetic.main.fragment_my_unit.*
 
@@ -41,27 +41,28 @@ class MyUnitFragment : Fragment(), IMyUnitView {
         appDatabase.getMyUnitDao().getMyUnitData()
             .observe(viewLifecycleOwner,
                 Observer<MyUnit?> { response ->
-                    response?.let { setMyUnitData(response) }
+                    if (progress != null) {
+                        progress.hide()
+                        response?.let { setMyUnitData(response) }
+                            ?: context!!.makeToast(getString(R.string.no_data_found))
+                    }
                 })
     }
 
     private fun setMyUnitData(item: MyUnit) {
-        if (progress != null) {
-            progress.hide()
-            tvDue.text = "${item.due}"
-            tvNextDue.text =
-                if (item.next_due == "") getString(R.string.over_due) else "${item.due}"
-            tvOpen.text = "${item.open_complaint}"
-            tvClosed.text = "${item.closed_complaint}"
-            tvTotalMember.text = "${item.total_members}"
-            tvLeasesDetail.text = "${item.leases_detail}"
-        }
+        tvDue.text = "${item.due}"
+        tvNextDue.text =
+            if (item.next_due == "") getString(R.string.over_due) else "${item.due}"
+        tvOpen.text = "${item.open_complaint}"
+        tvClosed.text = "${item.closed_complaint}"
+        tvTotalMember.text = "${item.total_members}"
+        tvLeasesDetail.text = "${item.leases_detail}"
     }
 
     override fun showToast(message: String) {
         if (progress != null) {
             progress.hide()
-            context!!.makeContext(message)
+            context!!.makeToast(message)
         }
     }
 }

@@ -265,5 +265,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNoData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_data_found"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/header_text"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/rvUpcomingEvents"
+            app:layout_constraintEnd_toEndOf="@id/rvUpcomingEvents"
+            app:layout_constraintStart_toStartOf="@id/rvUpcomingEvents"
+            app:layout_constraintTop_toTopOf="@id/rvUpcomingEvents" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

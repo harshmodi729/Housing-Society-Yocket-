@@ -12,7 +12,7 @@ import com.harsh.housingsocienty.adapter.ForumAdapter
 import com.harsh.housingsocienty.data.local.AppDatabase
 import com.harsh.housingsocienty.extension.getAppDatabase
 import com.harsh.housingsocienty.extension.isInternetAvailable
-import com.harsh.housingsocienty.extension.makeContext
+import com.harsh.housingsocienty.extension.makeToast
 import com.harsh.housingsocienty.model.Forum
 import kotlinx.android.synthetic.main.fragment_forum.*
 
@@ -49,7 +49,12 @@ class ForumFragment : Fragment(), IForumView {
                 Observer<List<Forum>> { response ->
                     if (progress != null) {
                         progress.hide()
-                        response?.let { adapter.addData(response as ArrayList<Forum>) }
+                        response?.let {
+                            if (response.isNotEmpty()) {
+                                tvNoData.visibility = View.GONE
+                                adapter.addData(response as ArrayList<Forum>)
+                            } else tvNoData.visibility = View.VISIBLE
+                        } ?: kotlin.run { tvNoData.visibility = View.VISIBLE }
                     }
                 })
     }
@@ -57,7 +62,7 @@ class ForumFragment : Fragment(), IForumView {
     override fun showToast(message: String) {
         if (progress != null) {
             progress.hide()
-            context!!.makeContext(message)
+            context!!.makeToast(message)
         }
     }
 }
